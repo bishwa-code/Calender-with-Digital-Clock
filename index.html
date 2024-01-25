@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calender & Digital Clock - JS Mini Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="day-container">
+            <span id="numeric-day">27</span>
+            <span id="day">Wednesday</span>
+        </div>
+        <div class="month-container">
+            <span id="month">July</span>
+            <span id="year">2023</span>
+        </div>
+    </div>
+    <div class="clock-container">
+        <div class="clock">
+            <span id="hour">00</span>
+            <span>:</span>
+            <span id="minute">00</span>
+            <span>:</span>
+            <span id="second">00</span>
+        </div>
+    </div>
+    <footer>Copyright &copy; 2024 | Bishal Kushwaha</footer>
+    <script>
+        let dayInNum = document.querySelector("#numeric-day");
+        let day = document.querySelector("#day");
+        let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        let month = document.querySelector("#month");
+        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+        let year = document.querySelector("#year");
+
+        let currentDate = new Date();
+
+        dayInNum.innerHTML = currentDate.getDate();
+        day.innerHTML = days[currentDate.getDay()];
+        month.innerHTML = months[currentDate.getMonth()];
+        year.innerHTML = currentDate.getFullYear();
+
+        // Digital Clock
+        let hour = document.getElementById("hour");
+        let minute = document.getElementById("minute");
+        let second = document.getElementById("second");
+
+        setInterval(() => {
+            let currentTime = new Date();
+
+            hour.innerHTML = ((currentTime.getHours() < 10) ? "0":"") + currentTime.getHours();
+
+            minute.innerHTML = ((currentTime.getMinutes() < 10) ? "0":"") + currentTime.getMinutes();
+
+            second.innerHTML = ((currentTime.getSeconds() < 10) ? "0":"") + currentTime.getSeconds();
+
+        }, 1000);    
+    </script>
+</body>
+</html>

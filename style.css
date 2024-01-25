@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(to left, #bdc3c7, #2c3e50);
+    position: relative;
+}
+
+
+
+/* styles for Calender */
+
+.container{
+    width: 30rem;
+    height: 25rem;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    text-align: center;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 0.8rem 2.4rem;
+}
+
+.day-container{
+    width: 60%;
+    background-color: #fff;
+    color: #343a40;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.day-container #numeric-day{
+    font-size: 7rem;
+    font-weight: 600;
+}
+.day-container #day{
+    font-size: 2rem;
+    font-weight: 500;
+    color: #22c55e;
+}
+
+.month-container{
+    width: 40%;
+    font-size: 2.2rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #f8f9fa;
+    background-color: #22c55e;
+}
+
+
+
+/* styles for Digital Clock */
+
+.clock-container{
+    width: 45rem;
+    height: 15rem;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 1.2rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 0.8rem 2.4rem;
+}
+
+.clock-container::before{
+    content: '';
+    width: 15rem;
+    height: 15rem;
+    position: absolute;
+    top: -7.5rem;
+    left: -7.5rem;
+    border-radius: 2.5rem;
+    background-color: #a3e635;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px o.7rem 2.9rem 0px;
+    z-index: -1;
+    animation: downup infinite linear 5s;
+}
+
+@keyframes downup {
+    0%{
+        transform: translateY(0%);
+    }
+    50%{
+       transform: translateY(100%); 
+    }
+    100%{
+        transform: translateY(0%);
+    }
+}
+
+.clock-container::after{
+    content: '';
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -7.5rem;
+    right: -7.5rem;
+    background-color: #6ee7b7;
+    z-index: -1;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 0.7rem 2.9rem 0px;
+    animation: updown infinite linear 5s;
+}
+
+@keyframes updown {
+    0%{
+        transform: translateY(0%);
+    }
+    50%{
+       transform: translateY(-100%); 
+    }
+    100%{
+        transform: translateY(0%);
+    }
+}
+
+.clock{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    color: #212529;
+    border-radius: 1.2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.clock::after{
+    content: '';
+    height: 0.4rem;
+    position: absolute;
+    top: 0px;
+    border-radius: 1rem;
+    background-color: #22c55e;
+    animation: lr infinite linear 5s;
+}
+
+@keyframes lr {
+    0%{
+        width: 0%;
+    }
+    50%{
+        width: 60%;
+    }
+    100%{
+        width: 0%;
+    }
+}
+.clock::before{
+    content: '';
+    height: 0.4rem;
+    position: absolute;
+    bottom: 0px;
+    background-color: #22c55e;
+    border-radius: 1rem;
+    animation: rl infinite linear 5s;
+}
+
+@keyframes rl {
+    0%{
+        width: 60%;
+    }
+    50%{
+        width: 0%;
+    }
+    100%{
+        width: 60%;
+    }
+}
+
+.clock span{
+    font-size: 6rem;
+    position: relative;
+}
+
+.clock span::after{
+    font-size: 1.6rem;
+    font-weight: 500;
+    position: absolute;
+    bottom: -8%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #22c55e;
+}
+
+#hour::after{
+    content: "HOUR";
+}
+#minute::after{
+    content: "MINUTE";
+}
+#second::after{
+    content: "SECOND";
+}
+
+
+/* developer */
+
+footer{
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #1f2937;
+    letter-spacing: 0.25rem;
+
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* responsive - lol, trying first time */
+
+@media screen and   (min-width: 995px){
+    .container{
+        position: absolute;
+        top: 50%;
+        left: 20%;
+    }
+    .clock-container{
+        position: absolute;
+        top: 50%;
+        left: 68%;
+    }
+    footer{
+        font-size: 2rem;
+        position: absolute;
+        bottom: 5%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media (max-width: 995x){
+    html{
+        font-size: 58%;
+    }
+}
+
+@media (max-width: 850px){
+    html{
+        font-size: 50%;
+    }
+}
+
+@media (max-width: 670px){
+    html{
+        font-size: 45%;
+    }
+}
+
+@media (max-width: 455px){
+    html{
+        font-size: 30%;
+    }
+}
