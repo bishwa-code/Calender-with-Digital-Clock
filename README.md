@@ -1,2 +1,7 @@
 # Calender-with-Digital-Clock
-Mini Calendar and Digital Clock using JavaScript
+**[LIVE DEMO]()**
+
+### Mini Calendar and Digital Clock using JavaScript 
+> BASIC CSS ANIMATION👍
+> MINI CALENDER👍
+> DIGITAL CLOCK👍
